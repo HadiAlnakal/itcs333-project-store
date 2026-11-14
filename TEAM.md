@@ -4,7 +4,7 @@
 | Student ID | Name | Module(s) owned |
 |---|---|---|
 | 20XXXXXX |  | m1_auth |
-| 20XXXXXX |  | m2_catalog |
+| 202403166 | Hadi Abdulshaheed Abdulkarim Ali Alnakal | m2_catalog |
 | 20XXXXXX |  | m3_cart |
 | 20XXXXXX |  | m4_orders |
 | 20XXXXXX |  | m5_admin |
