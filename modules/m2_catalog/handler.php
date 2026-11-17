@@ -48,4 +48,34 @@ if (http_method() === 'GET' && trim($rest, '/') === 'products') {
     send_json(200, ['data' => $products]);
 }
 
+
+$parts = explode('/', trim($rest, '/'));
+
+if (http_method() === 'GET' && count($parts) === 2 && $parts[0] === 'products') {
+
+    $id = param_id($parts[1]);
+
+    if ($id === null) {
+        send_error(404, 'NOT_FOUND');
+    }
+
+    $pdo = db();
+
+    $sql = "SELECT id, category_id, name, price, stock
+            FROM products WHERE id = :id";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+
+    $product = $stmt->fetch();
+
+    if ($product === false) {
+        send_error(404, 'NOT_FOUND');
+    }
+
+    send_json(200, $product);
+}
+
+
 send_error(501, 'NOT_IMPLEMENTED', ['module' => 'm2_catalog', 'rest' => $rest]);
