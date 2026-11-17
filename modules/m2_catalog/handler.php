@@ -78,4 +78,21 @@ if (http_method() === 'GET' && count($parts) === 2 && $parts[0] === 'products') 
 }
 
 
+
+if (http_method() === 'GET' && trim($rest, '/') === 'categories') {
+
+    $pdo = db();
+
+    $sql = "SELECT id, name FROM categories ORDER BY id";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+
+    $categories = $stmt->fetchAll();
+
+    send_json(200, ['data' => $categories]);
+}
+
+
+
 send_error(501, 'NOT_IMPLEMENTED', ['module' => 'm2_catalog', 'rest' => $rest]);
