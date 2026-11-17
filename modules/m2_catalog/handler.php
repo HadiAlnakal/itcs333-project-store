@@ -9,6 +9,7 @@ declare(strict_types=1);
  */
 
 $rest = $GLOBALS['__route']['rest'] ?? '';
+// Test m2_catalog using GitHub Actions
 
 
 if (http_method() === 'GET' && trim($rest, '/') === 'products') {
