@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        button, input, select {
+            padding: 8px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Product Catalog</h1>
+
+    <h2>Search Products</h2>
+
+    <form id="search-form">
+        <input type="text" id="search"
+               placeholder="Search products">
+
+        <select id="category">
+            <option value="">All Categories</option>
+        </select>
+
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Products</h2>
+    <div id="product-list"></div>
+
+    <h2>Product Details</h2>
+    <div id="product-details"></div>
+
+    <script src="catalog.js"></script>
+
+</body>
+</html>
